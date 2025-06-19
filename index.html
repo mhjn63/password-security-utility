@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Tester</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Password Strength Tester</h1>
+            <p class="subtitle">Test your password security and get recommendations for improvement</p>
+        </header>
+
+        <main class="main-content">
+            <div class="password-section">
+                <div class="form-group">
+                    <label for="password-input" class="form-label">Enter your password:</label>
+                    <div class="password-input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password-input" 
+                            class="form-control password-input" 
+                            placeholder="Type your password here..."
+                            autocomplete="off"
+                        >
+                        <button type="button" class="btn-toggle-password" id="toggle-password">
+                            <span class="toggle-icon">👁️</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="strength-meter-container">
+                    <div class="strength-meter">
+                        <div class="strength-bar" id="strength-bar"></div>
+                    </div>
+                    <div class="strength-label" id="strength-label">Enter a password</div>
+                </div>
+
+                <div class="password-score">
+                    <span class="score-label">Strength Score:</span>
+                    <span class="score-value" id="score-value">0%</span>
+                </div>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="card requirements-card">
+                    <div class="card__header">
+                        <h3>Requirements Checklist</h3>
+                    </div>
+                    <div class="card__body">
+                        <ul class="requirements-list" id="requirements-list">
+                            <!-- Requirements will be populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card analysis-card">
+                    <div class="card__header">
+                        <h3>Security Analysis</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="analysis-item">
+                            <strong>Entropy:</strong>
+                            <span id="entropy-value">0 bits</span>
+                        </div>
+                        <div class="analysis-item">
+                            <strong>Time to crack:</strong>
+                            <span id="crack-time">N/A</span>
+                        </div>
+                        <div class="analysis-item">
+                            <strong>Character variety:</strong>
+                            <span id="char-variety">0 types</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card recommendations-card">
+                <div class="card__header">
+                    <h3>Recommendations</h3>
+                </div>
+                <div class="card__body">
+                    <div id="recommendations-list" class="recommendations-list">
+                        <p class="placeholder-text">Enter a password to see personalized recommendations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card generator-card">
+                <div class="card__header">
+                    <h3>Password Generator</h3>
+                </div>
+                <div class="card__body">
+                    <div class="generator-controls">
+                        <div class="form-group">
+                            <label for="password-length" class="form-label">Length:</label>
+                            <input type="range" id="password-length" min="8" max="32" value="16" class="form-control">
+                            <span id="length-display">16</span>
+                        </div>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="include-uppercase" checked>
+                                Uppercase letters
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="include-lowercase" checked>
+                                Lowercase letters
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="include-numbers" checked>
+                                Numbers
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="include-symbols" checked>
+                                Special characters
+                            </label>
+                        </div>
+                    </div>
+                    <div class="generator-actions">
+                        <button type="button" class="btn btn--primary" id="generate-password">
+                            Generate Password
+                        </button>
+                        <div class="generated-password-container">
+                            <input type="text" id="generated-password" class="form-control" placeholder="Generated password will appear here..." readonly>
+                            <button type="button" class="btn btn--secondary" id="copy-password">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button type="button" class="btn btn--outline" id="clear-password">
+                    Clear Password
+                </button>
+            </div>
+
+            <div class="card security-tips-card">
+                <div class="card__header">
+                    <h3>Security Tips</h3>
+                </div>
+                <div class="card__body">
+                    <ul id="security-tips-list" class="security-tips-list">
+                        <!-- Security tips will be populated by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
